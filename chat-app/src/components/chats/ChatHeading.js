@@ -1,7 +1,7 @@
 import React from 'react';
 import {FaVideo} from 'react-icons/fa';
 import {FaUserPlus} from 'react-icons/fa';
-// import {MdEllipsisMenu} from 'react-icons/md';
+import {MdMoreHoriz} from 'react-icons/md';
 
 export default function({name, numberOfUsers}) {
     return (
@@ -16,7 +16,7 @@ export default function({name, numberOfUsers}) {
             <div className="options">
                 <FaVideo />
                 <FaUserPlus />
-                {/* <MdEllipsisMenu /> */}
+                <MdMoreHoriz />
             </div>
         </div>
     )
