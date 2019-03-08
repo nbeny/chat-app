@@ -21,7 +21,6 @@ export default class ChatContainer extends Component {
     }
 
     initSocket(socket) {
-        const {user} = this.props
         socket.emit(COMMUNITY_CHAT, this.resetChat)
         socket.on(PRIVATE_MESSAGE, this.addChat)
         socket.on('connect', () => {
@@ -32,7 +31,8 @@ export default class ChatContainer extends Component {
 
     sendOpenPrivateMessage = (reciever) => {
         const {socket, user} = this.props
-        socket.emit(PRIVATE_MESSAGE, {reciever, sender:user.name})
+        const {activeChat} = this.state
+        socket.emit(PRIVATE_MESSAGE, {reciever, sender:user.name, activeChat})
     }
 
 	/*
