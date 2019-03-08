@@ -62,7 +62,7 @@ export default class MessageInput extends Component {
 			clearInterval(this.typingInterval)
 			this.props.sendTyping(false)
 		}
-}
+    }
 
     render() {
         const {message} = this.state

@@ -35,10 +35,12 @@ export default class Messages extends Component {
                                 <div key={mes.id} 
                                     className={`message-container ${mes.sender === user.name && 'right'}`}
                                     >
-                                    <div>{mes.time}</div>
+                                    <div>{mes.sender}</div>
                                     <div className="data">
-                                        <div className="message">{mes.message}</div>
-                                        <div className="name">{mes.sender}</div>
+                                        <div className="name">{mes.time}</div>
+                                        <div className="message">
+                                            {mes.message}
+                                        </div>
                                     </div>
 
                                 </div>
