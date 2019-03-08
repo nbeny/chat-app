@@ -22,7 +22,7 @@ export default class ChatContainer extends Component {
         this.initSocket(socket)
     }
 
-    componentWillMount() {
+    componentWillUnmount() {
         const {socket} = this.props
         socket.off(PRIVATE_MESSAGE)
         socket.off(USER_CONNECTED)

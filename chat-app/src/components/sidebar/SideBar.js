@@ -61,13 +61,13 @@ export default class SideBar extends Component {
                 <div className="side-bar-select">
                     <div
                         onClick = {() => {this.setActiveSideBar(SideBar.type.CHATS)}}
-                        className={`side-bar-select_option ${(activeSideBar === SideBar.type.CHATS) ? 'active' : ''}`}>
+                        className={`side-bar-select__option ${(activeSideBar === SideBar.type.CHATS) ? 'active' : ''}`}>
                         <span>Chats</span>
                     </div>
                     <div
                         onClick = {() => {this.setActiveSideBar(SideBar.type.USERS)}}
-                        className={`side-bar-select_option ${(activeSideBar === SideBar.type.USERS) ? 'active' : ''}`}>
-                            <span>Users</span>
+                        className={`side-bar-select__option ${(activeSideBar === SideBar.type.USERS) ? 'active' : ''}`}>
+                        <span>Users</span>
                     </div>
                 </div>
                 <div
@@ -90,7 +90,7 @@ export default class SideBar extends Component {
                         }
                         return null
                     }) :
-                    differenceBy(users, [user], 'name').users.map((otherUser) => {
+                    differenceBy(users, [user], 'name').map((otherUser) => {
                         return (
                             <SideBarOption
                                 key={otherUser.id}
