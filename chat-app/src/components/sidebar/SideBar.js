@@ -46,16 +46,24 @@ export default class SideBar extends Component {
                     <div className="headind_srch">
                         <div className="recent_heading"><h4>Recent</h4></div>
                             <div className="srch_bar">
-                            <form onSubmit={this.handleSubmit} className="search">
-                                <input placeholder="Search"
-                                    type="text"
-                                    value={reciever}
-                                    onChange={(e) => {this.setState({reciever:e.target.value})}} />
-                                <i className="search-icon"><FaSearch /></i>
-                            <div className="plus"></div>
-                            </form>
+                                <div className="stylish-input-group">
+                                    <form onSubmit={this.handleSubmit} className="search">
+                                        <input placeholder="Search"
+                                            className="search-bar"
+                                            type="text"
+                                            value={reciever}
+                                            onChange={(e) => {this.setState({reciever:e.target.value})}} />
+                                        <span className="input-group-addon">
+                                            <button className="search-icon"
+                                                value={reciever}
+                                                formAction={(e) => {this.setState({reciever:e.target.value})}}>
+                                                <FaSearch />
+                                            </button>
+                                        </span>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
                     <div className="nav nav-masthead justify-content-center">
                         <div
