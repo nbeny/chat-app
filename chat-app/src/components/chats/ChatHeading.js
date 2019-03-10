@@ -13,11 +13,11 @@ export default function({name, numberOfUsers}) {
                     <span>{numberOfUsers ? numberOfUsers : null}</span>
                 </div>
             </div>
-            <div className="options">
+            {/* <div className="options">
                 <FaVideo />
                 <FaUserPlus />
                 <MdMoreHoriz />
-            </div>
+            </div> */}
         </div>
     )
 }

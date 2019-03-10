@@ -17,13 +17,22 @@ export class SideBarOption extends Component {
     render() {
         const {name, lastMessage, active, onClick} = this.props
         return (
-            <div className={`user ${active ? 'active' : ''}`}
+            <div className="chat_list">
+            <div className={`chat_people ${active ? 'active' : ''}`}
                 onClick={onClick}>
-                <div className="user-photo">{name[0].toUpperCase()}</div>
-                <div className="user-info">
-                    <div className="name">{name}</div>
-                    {lastMessage && <div className="last-message">{lastMessage}</div>}
+                <div className="chat_img">{name[0].toUpperCase()}</div>
+                <div className="chat_ib">
+                    <h5>
+                        {name}
+                        <span class="chat_date">
+                            {lastMessage.time}
+                        </span>
+                    </h5>
+                    <p>
+                        {lastMessage && <div className="last-message">{lastMessage}</div>}
+                    </p>
                 </div>
+            </div>
             </div>
         )
     }

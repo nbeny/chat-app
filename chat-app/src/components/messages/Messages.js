@@ -24,25 +24,45 @@ export default class Messages extends Component {
     render() {
         const {messages, user, typingUsers} = this.props
         console.log(messages)
+
+        const outOrInGoingMessage = (mes) => {
+            if (mes.sender === user.name) {
+                return (
+                    <div key={mes.id} 
+                        className='outgoing_msg'>
+                        <div className='sent_msg'>
+                            <p>{mes.message}</p>
+                            <span className="time_date">{mes.time}</span>
+                        </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div key={mes.id} 
+                        className='incoming_msg'>
+                        <div className='incoming_msg_img'><img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" /></div>
+                        <div className='received_msg'>
+                            <div class="received_withd_msg">
+                                <h1>{mes.sender}</h1>
+                                <p>{mes.message}</p>
+                                <span className="time_date">{mes.time}</span>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        }
+
         return (
             <div ref='container'
-                className="thread-container">
-                <div className="thread">
+                className="mesgs">
+                <div className="msg_history">
                     {
                         messages.map((mes) => {
                             console.log("message: ", mes)
                             return (
-                                <div key={mes.id} 
-                                    className={`message-container ${mes.sender === user.name && 'right'}`}
-                                    >
-                                    <div>{mes.sender}</div>
-                                    <div className="data">
-                                        <div className="name">{mes.time}</div>
-                                        <div className="message">
-                                            {mes.message}
-                                        </div>
-                                    </div>
-
+                                <div>
+                                    {outOrInGoingMessage(mes)}
                                 </div>
                             )
                         })
