@@ -174,3 +174,7 @@ img{ max-width:100%;}
     float: right;
   }
 } */
+
+.choiceChatsUsers {
+    color: rgba(22, 15, 15, 0.25);
+}

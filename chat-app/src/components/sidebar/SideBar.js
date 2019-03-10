@@ -58,16 +58,16 @@ export default class SideBar extends Component {
                     </div>
 
                     <div className="nav nav-masthead justify-content-center">
-                        <a
+                        <div
                             onClick = {() => {this.setActiveSideBar(SideBar.type.CHATS)}}
                             className={`nav-link ${(activeSideBar === SideBar.type.CHATS) ? 'active' : ''}`}>
-                            <span>Chats</span>
-                        </a>
-                        <a
+                            <span className="choiceChatsUsers">Chats</span>
+                        </div>
+                        <div
                             onClick = {() => {this.setActiveSideBar(SideBar.type.USERS)}}
                             className={`nav-link ${(activeSideBar === SideBar.type.USERS) ? 'active' : ''}`}>
-                            <span>Users</span>
-                        </a>
+                            <span className="choiceChatsUsers">Users</span>
+                        </div>
                     </div>
                     <div className="inbox_chat">
                     <div

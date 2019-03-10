@@ -67,13 +67,13 @@ export default class MessageInput extends Component {
     render() {
         const {message} = this.state
         return (
-            <div className="message-input">
+            <div className="type_msg">
                 <form onSubmit={this.handleSubmit}
-                    className="message-form">
+                    className="input_msg_write">
                     <input id="message"
                         ref={"messageinput"}
                         type="text"
-                        className="form-control"
+                        className="write_msg"
                         value={message}
                         autoComplete={'off'}
                         placeholder="Type something interesting"
@@ -85,7 +85,7 @@ export default class MessageInput extends Component {
                         } />
                     <button disabled={message.length < 1}
                         type="submit"
-                        className="send">Send</button>
+                        className="msg_send_btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
                 </form>
             </div>
         )

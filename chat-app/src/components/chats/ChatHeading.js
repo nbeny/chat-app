@@ -1,7 +1,7 @@
 import React from 'react';
-import {FaVideo} from 'react-icons/fa';
-import {FaUserPlus} from 'react-icons/fa';
-import {MdMoreHoriz} from 'react-icons/md';
+// import {FaVideo} from 'react-icons/fa';
+// import {FaUserPlus} from 'react-icons/fa';
+// import {MdMoreHoriz} from 'react-icons/md';
 
 export default function({name, numberOfUsers}) {
     return (
