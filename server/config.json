@@ -1,0 +1,4 @@
+{
+    "connectionString": "mongodb://localhost/Matchact",
+    "secret": "MySuperSecretKey"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "MatchactServer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "node": "^12.1.0",
+    "rootpath": "^0.1.2",
+    "socket.io": "^2.2.0",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "node index.js",
+    "nodemon": "nodemon index.js"
+  },
+  "eslintConfig": {
+    "extends": "MatchactServer"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10"
+  }
+}

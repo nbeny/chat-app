@@ -1,0 +1,35 @@
+{
+  "name": "MatchactClient",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-icons": "^3.5.0",
+    "react-scripts": "^3.0.0",
+    "socket.io": "^2.2.0",
+    "typescript": "^3.4.5",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "react": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "MatchactClient"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10"
+  }
+}
