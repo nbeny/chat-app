@@ -58,7 +58,7 @@ const remove = async function(req, res){
     let user, err;
     user = req.user;
 
-    [err, user] = await to(user.destroy());
+    [err, user] = await to(user.remove());
     if(err) return ReE(res, 'error occured trying to delete user');
 
     return ReS(res, {message:'Deleted User'}, 204);
