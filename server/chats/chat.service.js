@@ -18,7 +18,7 @@ async function getById(id) {
 
 async function create(chatParam) {
     // validate
-    if (await Chat.findOne({ id: userParam.username })) {
+    if (await Chat.findOne({ id: chatParam.id })) {
         throw 'Username "' + userParam.username + '" is already taken';
     }
 
