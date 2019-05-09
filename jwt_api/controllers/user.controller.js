@@ -70,13 +70,6 @@ const login = async function(req, res){
     const body = req.body;
     let err, user;
 
-    console.log('**********')
-    console.log(req.body)
-    console.log('**********')
-    console.log(authService)
-    console.log('**********')
-    console.log(authService.authUser)
-    console.log('**********')
     [err, user] = await to(authService.authUser(body));
     if(err) return ReE(res, err, 422);
 
