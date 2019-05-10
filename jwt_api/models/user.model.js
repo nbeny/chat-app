@@ -8,16 +8,15 @@ const {TE, to}          = require('../services/util.service');
 const CONFIG            = require('../config/config');
 
 let UserSchema = mongoose.Schema({
-    first:      {type:String},
-    last:       {type:String},
-    phone:	    {type:String, lowercase:true, trim: true, index: true, unique: true, sparse: true,//sparse is because now we have two possible unique keys that are optional
+    firstname:      {type:String},
+    lastname:       {type:String},
+    username:	    {type:String, trim: true, require: true, unique: true,
         validate:[validate({
-            validator: 'isNumeric',
-            arguments: [7, 20],
-            message: 'Not a valid phone number.',
+            validator: 'isAlphanumeric',
+            message: 'Not a valid Username.',
         })]
     },
-    email: {type:String, lowercase:true, trim: true, index: true, unique: true, sparse: true,
+    email: {type:String, trim: true, require: true, unique: true,
             validate:[validate({
                 validator: 'isEmail',
                 message: 'Not a valid email.',
@@ -25,6 +24,9 @@ let UserSchema = mongoose.Schema({
     },
     password:   {type:String},
 
+    isadmin:    {type:Boolean, default: false},
+    isonline:   {type:Boolean, default: false},
+    isverify:   {type:Boolean, default: false}
 }, {timestamps: true});
 
 UserSchema.virtual('companies', {
@@ -96,5 +98,3 @@ UserSchema.methods.toWeb = function(){
 };
 
 let User = module.exports = mongoose.model('User', UserSchema);
-
-

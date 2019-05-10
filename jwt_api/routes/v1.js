@@ -23,6 +23,9 @@ router.put(     '/users',           passport.authenticate('jwt', {session:false}
 router.delete(  '/users',           passport.authenticate('jwt', {session:false}), UserController.remove);     // D
 router.post(    '/users/login',     UserController.login);
 
+// router.post(    '/users/sendmail',  UserController.sendmail);
+router.post(    '/users/verify',    UserController.verify);                                                    // V
+
 router.post(    '/companies',             passport.authenticate('jwt', {session:false}), CompanyController.create);                  // C
 router.get(     '/companies',             passport.authenticate('jwt', {session:false}), CompanyController.getAll);                  // R
 

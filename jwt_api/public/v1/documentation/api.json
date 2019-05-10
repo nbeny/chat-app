@@ -3,17 +3,17 @@
   "info": {
     "description": "This is documentatin for the Node API. For every request you must include in the header: \n Content-Type: application/json \n\n For protected routes by authorization we use JWT. Each of these have a lock by them. Must include a Bearer Token in the header \n Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ...",
     "version": "1.0.0",
-    "title": "Rest Node API mysql + JWT",
+    "title": "Matchact Api",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
-      "email": "brian@orangetech.com"
+      "email": "ynebocin@gmail.com"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "api.your-url.com",
+  "host": "api.Matchact.com",
   "basePath": "/v1",
   "tags": [
     {
