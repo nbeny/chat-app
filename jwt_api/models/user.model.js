@@ -13,14 +13,14 @@ let UserSchema = mongoose.Schema({
     username:	    {type:String, trim: true, require: true, unique: true,
         validate:[validate({
             validator: 'isAlphanumeric',
-            message: 'Not a valid Username.',
+            message: 'Not a valid Username.'
         })]
     },
     email: {type:String, trim: true, require: true, unique: true,
             validate:[validate({
                 validator: 'isEmail',
-                message: 'Not a valid email.',
-            }),]
+                message: 'Not a valid email.'
+            })]
     },
     password:   {type:String},
 
@@ -80,10 +80,10 @@ UserSchema.virtual('full_name').set(function (name) {
 });
 
 UserSchema.virtual('full_name').get(function () { //now you can treat as if this was a property instead of a function
-    if(!this.first) return null;
-    if(!this.last) return this.first;
+    if(!this.firstname) return null;
+    if(!this.lastname) return this.firstname;
 
-    return this.first + ' ' + this.last;
+    return this.firstname + ' ' + this.lastname;
 });
 
 UserSchema.methods.getJWT = function(){

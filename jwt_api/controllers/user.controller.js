@@ -2,12 +2,13 @@ const nodemailer = require("nodemailer");
 const { User } = require('../models');
 const authService = require('../services/auth.service');
 const { to, ReE, ReS } = require('../services/util.service');
+const CONFIG = require('../config/config');
 
-const mainNodeMailer = async function mainNodeMailer(body) {
+const mainNodeMailer = async function mainNodeMailer(user) {
 
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
-    let testAccount = await nodemailer.createTestAccount();
+    // let TestAccount = await nodemailer.createTestAccount();
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
@@ -15,17 +16,17 @@ const mainNodeMailer = async function mainNodeMailer(body) {
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-            user: testAccount.user, // generated ethereal user
-            pass: testAccount.pass // generated ethereal password
+            user: CONFIG.email_superuser, // generated ethereal user
+            pass: CONFIG.password_superuser // generated ethereal password
         }
     });
 
     let info = await transporter.sendMail({
-        from: '"Alesio 👻" <ynebocin@gmail.com>', //sender email
-        to: body.email,
+        from: '"Alesio 👻" <' + CONFIG.email_superuser + '>', //sender email
+        to: user.email,
         subject: "Hello from Matchact ✔",
         text: "For login to you're account, please, verify you're email with the link bellow",
-        html: "<a>http://localhost:3000/users/verify?verify=" + "" + "</a>"
+        html: "<a>http://localhost:3000/users/verify?verify=" + user._id + "</a>"
     });
 
     console.log("Message sent: %s", info.messageId);
@@ -52,7 +53,7 @@ const create = async function (req, res) {
 
         if (err) return ReE(res, err, 422);
 
-        mainNodeMailer(body).catch(console.error);
+        mainNodeMailer(user).catch(console.error);
 
         return ReS(res, { message: 'Successfully created new user.', user: user.toWeb(), token: user.getJWT() }, 201);
     }

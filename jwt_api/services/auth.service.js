@@ -1,4 +1,4 @@
-const { User } 	    = require('../models');
+const { User } 	    = require('../models/index');
 const validator     = require('validator');
 const { to, TE }    = require('../services/util.service');
 
@@ -43,6 +43,7 @@ const createUser = async function(userInfo){
 
     if(!username) TE('An username was not entered.');
 
+    let user;
 
     if(validator.isEmail(email) && validator.isAlphanumeric(username)){
         auth_info.method = 'email';
@@ -51,7 +52,8 @@ const createUser = async function(userInfo){
         userInfo.username = username;
 
         [err, user] = await to(User.create(userInfo));
-        if(err) TE('user already exists with that email or that username');
+
+        if(err) TE('user already exists with that email');
 
         return user;
 
@@ -60,6 +62,7 @@ const createUser = async function(userInfo){
         userInfo.username = username;
 
         [err, user] = await to(User.create(userInfo));
+
         if(err) TE('user already exists with that username');
 
         return user;
@@ -85,17 +88,15 @@ const authUser = async function(userInfo){//returns token
     if(validator.isEmail(unique_key)){
         auth_info.method='email';
 
-        [err, user] = await to(User.findOne({email:unique_key }));
+        [err, user] = await to(User.findOne({ email:unique_key }));
         if(err) TE(err.message);
-
-    }else if(validator.isAlphanumeric(unique_key, 'any')){//checks if only username was sent
+    }else if(validator.isAlphanumeric(unique_key)){//checks if only username was sent
         auth_info.method='username';
 
-        [err, user] = await to(User.findOne({username:unique_key }));
+        [err, user] = await to(User.findOne({ username:unique_key }));
         if(err) TE(err.message);
-
     }else{
-        TE('A valid email or phone number was not entered');
+        TE('A valid email or username was not entered');
     }
 
     if(!user) TE('Not registered');
@@ -105,6 +106,5 @@ const authUser = async function(userInfo){//returns token
     if(err) TE(err.message);
 
     return user;
-
 }
 module.exports.authUser = authUser;
