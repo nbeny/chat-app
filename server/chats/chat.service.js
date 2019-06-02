@@ -19,7 +19,15 @@ async function createChat() {
 
 }
 
+<<<<<<< HEAD
 async function createChatNameFromUsers() {
+=======
+async function create(chatParam) {
+    // validate
+    if (await Chat.findOne({ id: chatParam.id })) {
+        throw 'Username "' + userParam.username + '" is already taken';
+    }
+>>>>>>> 5b1b859a9419351c9d8b2d6120b5f4a042ad4bd9
 
 }
 
